@@ -1,0 +1,29 @@
+<div class="Main">
+  <div class="center"> <h1>Contact Book</h1> </div>
+  <div class="form-div center">
+    <label for="newUserName"> Name : <input [(ngModel)]="newUserName" id="newUserName" type="text" placeholder="Enter your name" required></label>
+    <label for="newUserEmail"> Email : <input [(ngModel)]="newUserEmail" type="text" placeholder="Enter your email" required></label>
+    <label for="newUserPhoneNumber" class="number"> Mobile Number : <input [(ngModel)]="newUserPhoneNumber" type="text" placeholder="Enter your phone number" required></label>
+    <label for="userProfile" class="upload"> Upload your image : <input type="file" id="userProfile" (change)="fetchImageUrl($event)" required></label>
+    <button id="submit" (click)="addContact()"> Submit New Contact </button>
+    <p> {{ showError }} </p>
+  </div>
+  <div class="center centerDetails">
+    <div class="center margin" *ngFor = "let contact of contacts">
+      <div>
+        <img [src]="contact.Source" alt="">
+      </div>
+      <div class="details">
+        <div>
+          <label for="newUserName"> Name : {{ contact.Name }}</label>
+        </div>
+        <div>
+          <label for="newUserName"> Email : {{ contact.Email }}</label>
+        </div>
+        <div>
+          <label for="newUserName"> Ph. Num : {{ contact.Number }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
